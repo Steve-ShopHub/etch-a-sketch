@@ -11,6 +11,8 @@ for (i = 0; i < 16; i++) {
     };
 
 
-
+gridItem.addEventListener('mouseover', function(){
+    
+});
 
 
