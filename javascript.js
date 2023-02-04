@@ -1,3 +1,5 @@
+/*
+
 const container = document.querySelector('#container');
 
 const changeGridButton = document.querySelector('#change-grid');
@@ -64,9 +66,32 @@ function addGridProperty(){
 }
 
 
+// Create random color function
+// On hover: Remove existing colour class and then add random colour class 
+// background: hsl(hue, saturation, lightness)
+// background: hsl(randomHue, 0.9, lightness)
+
+*/
+
+function randomHue() {
+    let hue = Math.floor(Math.random() * 360) + 1;
+    return hue;
+}
+
+
+function randomColor() {
+
+}
 
 
 
+
+
+let initialColor = `${randomHue()}`;
+
+alert (initialColor);
+
+/*
 
 function hoverColor(){
     let gridItems =  document.querySelectorAll('.grid-item');

@@ -8,10 +8,18 @@ body {
 }
 
 
-.grid-item {
-    background-color: rgb(159, 118, 255);
+/* .grid-item {
+    background: hsl(hue, saturation, lightness)
     border: black 1px solid;
+} */
+
+
+.grid-item {
+  background: rgb(159, 118, 255);
+  border: black 1px solid;
 }
+
+
 
 button {
     margin: 20px;
