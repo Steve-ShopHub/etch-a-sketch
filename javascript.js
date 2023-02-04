@@ -1,5 +1,3 @@
-/*
-
 const container = document.querySelector('#container');
 
 const changeGridButton = document.querySelector('#change-grid');
@@ -66,12 +64,10 @@ function addGridProperty(){
 }
 
 
-// Create random color function
-// On hover: Remove existing colour class and then add random colour class 
-// background: hsl(hue, saturation, lightness)
-// background: hsl(randomHue, 0.9, lightness)
 
-*/
+
+
+
 
 function randomHue() {
     let hue = Math.floor(Math.random() * 360) + 1;
@@ -79,17 +75,36 @@ function randomHue() {
 }
 
 
-function randomColor() {
 
+let hue = randomHue();
+let saturation = 80;
+let lightness = 80;
+
+/*
+
+function lightnessDec(){
+    lightness = lightness - 10;
+    return lightness;
+}
+
+*/
+
+function randomColor() {
+    let result = ('hsl(' + randomHue() + ' ' + saturation + '% ' + lightness + '%)').toString();
+    return result;
 }
 
 
 
+function hoverColor(){
+    let gridItems =  document.querySelectorAll('.grid-item');
+    gridItems.forEach(gridItem => {
+        gridItem.addEventListener('mouseover', () => {
+            gridItem.style.backgroundColor = randomColor();
+        });
 
-
-let initialColor = `${randomHue()}`;
-
-alert (initialColor);
+    });
+};
 
 /*
 
@@ -103,7 +118,7 @@ function hoverColor(){
     });
 };
 
-
+*/
 
 function buildGrid () {
     removeGridItems();
@@ -115,6 +130,8 @@ function buildGrid () {
     hoverColor();
 
 };
+
+///////////////////////////////////////// Unused code ///////////////////////////////////////////
 
 /*
 
@@ -139,21 +156,6 @@ function buildGrid () {
 
 };
 
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
 for (let i = 0; i < gridSize; i++) {
     for (let j = 0; j < gridSize; j++){
 
@@ -161,31 +163,3 @@ for (let i = 0; i < gridSize; i++) {
 }
 
 */
-
-//Creates grid item
-
-
-
-
-
-
-
-
-
-
-/*
-
-gridItem.addEventListener('mouseover', function hoverGridItem(){
-    gridItem.style.color = 'green';
-    
-});
-
-gridItem.addEventListener('mouseout', function hoverOffGridItem(){
-    gridItem.style.color = 'blue';
-    
-});
-
-*/
-
-
-
