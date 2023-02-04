@@ -8,12 +8,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input id="color-input" value="rainbow">Enter pen color (name, hex, etc)</input>
-    <button id="color-submit">Confirm</button>
+    <div class="selection parent-container">
+        <div class="pen-colour child-container">
+            <input id="pen-color-input" value="rainbow"></input>
+            <h4>Enter pen color (name, hex, etc)</h4>
+            <button id="pen-color-submit">Confirm</button>
+        </div>
+        <div class="seperator"></div>
+        <div class="background-colour child-container"> 
+            <input id="background-color-input" value="gray"></input>
+            <h4>Enter background color (name, hex, etc)</h4>
+            <button id="background-color-submit">Confirm</button>
 
-    <button class="custom-btn btn-12" id="change-grid"><span>Let's go!</span><span>Change grid size</span></button>
-    <div id="container">
-    </div>
+
+        </div> 
+        <button class="grid-size button" id="change-grid">Change pen size</button>    
+    </div>    
+    
+
+    
+    <div id="container"></div>
 
     <script src="javascript.js"></script>
 </body>

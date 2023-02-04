@@ -11,11 +11,13 @@ const gridContainer = document.createElement('div');
 
 
 
-let gridSize = 4;
+let gridSize = 30;
+let backgroundColor = 'green';
 
 createGridContainer();
 addGridItems();
 addGridProperty();
+
 hoverColor();
 
 
@@ -70,9 +72,41 @@ function addGridProperty(){
 }
 
 
+//////// Background color change
 
 
 
+const backgroundColorInput = document.querySelector('#background-color-input');
+const backgroundColorSubmit = document.querySelector('#background-color-submit');
+
+backgroundColorSubmit.addEventListener('click', changeBackgroundColor);
+
+
+
+function changeBackgroundColor(){
+	backgroundColor = backgroundColorInput.value;
+    return backgroundColor;
+};
+
+changeBackgroundColor();
+
+
+
+
+function selectBackgroundColor(){
+    let background =  document.querySelectorAll('.grid-item');
+    background.style.background = `${changeBackgroundColor()}`;
+};
+        
+
+
+
+////// Rainbow/random color
+
+
+let hue = randomHue();
+let saturation = 80;
+let lightness = 80;
 
 
 function randomHue() {
@@ -80,40 +114,25 @@ function randomHue() {
     return hue;
 }
 
-
-
-let hue = randomHue();
-let saturation = 80;
-let lightness = 80;
-
-/*
-
-function lightnessDec(){
-    lightness = lightness - 10;
-    return lightness;
-}
-
-*/
-
 function randomColor() {
     let result = ('hsl(' + randomHue() + ' ' + saturation + '% ' + lightness + '%)').toString();
     return result;
 }
 
-
+/////////// Pen color change
 
 
 let penColor = `${randomColor()}`;
 
-const colorInput = document.querySelector('#color-input');
-const colorSubmit = document.querySelector('#color-submit');
+const penColorInput = document.querySelector('#pen-color-input');
+const penColorSubmit = document.querySelector('#pen-color-submit');
 
-colorSubmit.addEventListener('click', changePenColor);
+penColorSubmit.addEventListener('click', changePenColor);
 
 
 
 function changePenColor(){
-	penColor = colorInput.value;
+	penColor = penColorInput.value;
     if (penColor == 'rainbow') {
         return randomColor();
     } else return penColor;
@@ -121,6 +140,8 @@ function changePenColor(){
 
 changePenColor();
 
+
+//////// Hover grid item color change
 
 function hoverColor(){
     let gridItems =  document.querySelectorAll('.grid-item');
@@ -132,21 +153,7 @@ function hoverColor(){
     });
 };
 
-/////// Random color 
 
-/*
-
-function hoverColor(){
-    let gridItems =  document.querySelectorAll('.grid-item');
-    gridItems.forEach(gridItem => {
-        gridItem.addEventListener('mouseover', () => {
-            gridItem.style.backgroundColor = randomColor();
-        });
-
-    });
-};
-
-*/
 
 
 
