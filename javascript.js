@@ -5,6 +5,12 @@ changeGridButton.addEventListener('click', buildGrid);
 
 const gridContainer = document.createElement('div');
 
+
+
+
+
+
+
 let gridSize = 4;
 
 createGridContainer();
@@ -96,6 +102,40 @@ function randomColor() {
 
 
 
+
+let penColor = `${randomColor()}`;
+
+const colorInput = document.querySelector('#color-input');
+const colorSubmit = document.querySelector('#color-submit');
+
+colorSubmit.addEventListener('click', changePenColor);
+
+
+
+function changePenColor(){
+	penColor = colorInput.value;
+    if (penColor == 'rainbow') {
+        return randomColor();
+    } else return penColor;
+};
+
+changePenColor();
+
+
+function hoverColor(){
+    let gridItems =  document.querySelectorAll('.grid-item');
+    gridItems.forEach(gridItem => {
+        gridItem.addEventListener('mouseover', () => {
+            gridItem.style.backgroundColor = `${changePenColor()}`;
+        });
+
+    });
+};
+
+/////// Random color 
+
+/*
+
 function hoverColor(){
     let gridItems =  document.querySelectorAll('.grid-item');
     gridItems.forEach(gridItem => {
@@ -106,19 +146,12 @@ function hoverColor(){
     });
 };
 
-/*
-
-function hoverColor(){
-    let gridItems =  document.querySelectorAll('.grid-item');
-    gridItems.forEach(gridItem => {
-        gridItem.addEventListener('mouseover', () => {
-            gridItem.style.backgroundColor = 'blue';
-        });
-
-    });
-};
-
 */
+
+
+
+
+
 
 function buildGrid () {
     removeGridItems();
