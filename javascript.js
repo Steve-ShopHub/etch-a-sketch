@@ -12,7 +12,7 @@ const gridContainer = document.createElement('div');
 
 
 let gridSize = 30;
-let backgroundColor = 'green';
+
 
 createGridContainer();
 addGridItems();
@@ -74,7 +74,9 @@ function addGridProperty(){
 
 //////// Background color change
 
+/*
 
+let backgroundColor = 'green';
 
 const backgroundColorInput = document.querySelector('#background-color-input');
 const backgroundColorSubmit = document.querySelector('#background-color-submit');
@@ -98,7 +100,7 @@ function selectBackgroundColor(){
     background.style.background = `${changeBackgroundColor()}`;
 };
         
-
+*/
 
 
 ////// Rainbow/random color
