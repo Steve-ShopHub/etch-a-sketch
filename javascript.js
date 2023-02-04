@@ -14,8 +14,21 @@ hoverColor();
 
 
 function userGridSize () {    
+    while (true) {
     gridSize = parseInt(prompt('Enter number of grid squares on each side'));
+    if (gridSize <= 100) {
+        break
+    }
+    else if (gridSize > 100) {
+        alert('You trying to break the app? Enter a number less than 100 you fool!');
+    }
+    break;
 };
+};
+
+
+
+
 
 function createGridContainer() {    
     gridContainer.classList.add('grid-container');
