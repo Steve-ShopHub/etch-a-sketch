@@ -43,9 +43,18 @@ h4 {
 
 
 .grid-item {
-  background: rgb(159, 118, 255);
+  background: rgb(255, 255, 255);
+  border: solid rgb(145, 145, 145) 1px;
   
  
 }
 
+.pen-colour.child-container {
+  display: flex;
+  flex-direction: column;
+}
 
+
+#change-grid-container {
+  margin-top: 20px;
+}

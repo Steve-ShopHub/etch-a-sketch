@@ -1,7 +1,15 @@
 const container = document.querySelector('#container');
 
-const changeGridButton = document.querySelector('#change-grid');
-changeGridButton.addEventListener('click', buildGrid);
+const changeGridSlide = document.querySelector('#change-grid');
+changeGridSlide.addEventListener('input', buildGrid); // changed from 'click'
+
+const output = document.querySelector(".change-grid-output");
+
+output.textContent = changeGridSlide.value;
+
+changeGridSlide.addEventListener('input', () => {
+    output.textContent = changeGridSlide.value;
+});
 
 const gridContainer = document.createElement('div');
 
@@ -11,7 +19,7 @@ const gridContainer = document.createElement('div');
 
 
 
-let gridSize = 30;
+let gridSize = 50;
 
 
 createGridContainer();
@@ -20,6 +28,23 @@ addGridProperty();
 
 hoverColor();
 
+
+function userGridSize () {    
+    while (true) {
+    gridSize = changeGridSlide.value;
+    if (gridSize <= 100) {
+        break
+    }
+    // else if (gridSize > 100) {
+    //     alert('You trying to break the app? Enter a number less than 100 you fool!');
+    // }
+    break;
+};
+};
+
+
+
+/*
 
 function userGridSize () {    
     while (true) {
@@ -34,6 +59,7 @@ function userGridSize () {
 };
 };
 
+*/
 
 
 
@@ -44,6 +70,7 @@ function createGridContainer() {
     gridContainer.style.width = '500px';
     gridContainer.style.justifyContent = 'center';
     gridContainer.style.display = 'grid';
+    gridContainer.style.border = 'solid 2px black';
     container.appendChild(gridContainer);
 }
 
@@ -121,6 +148,30 @@ function randomColor() {
     return result;
 }
 
+/////////// Testing color picker HTML ^^ (replaces 'pen color change' commented out below)
+
+
+let penColor = `${randomColor()}`;
+
+const penColorInput = document.querySelector('#color');
+const penColorSubmit = document.querySelector('#submit');
+
+penColorSubmit.addEventListener('click', changePenColor);
+
+
+
+function changePenColor(){
+	penColor = penColorInput.value;
+    if (penColor == 'rainbow') {
+        return randomColor();
+    } else return penColor;
+};
+
+changePenColor();
+
+
+/* ///////////////
+
 /////////// Pen color change
 
 
@@ -143,14 +194,33 @@ function changePenColor(){
 changePenColor();
 
 
+*/
+
 //////// Hover grid item color change
 
 function hoverColor(){
     let gridItems =  document.querySelectorAll('.grid-item');
+    let isMouseDown = false;
+    
     gridItems.forEach(gridItem => {
-        gridItem.addEventListener('mouseover', () => {
+        gridItem.addEventListener('mousedown', () => {
+            isMouseDown = true;
+          });
+          
+          gridItem.addEventListener('mouseup', () => {
+            isMouseDown = false;
+          });
+          
+          gridItem.addEventListener('mouseover', () => {
+            if (isMouseDown) {
+              // Change the color of the grid item
+              gridItem.style.backgroundColor = `${changePenColor()}`;
+            }
+          });
+          
+          gridItem.addEventListener('click', () => {
             gridItem.style.backgroundColor = `${changePenColor()}`;
-        });
+          });
 
     });
 };

@@ -10,10 +10,28 @@
 <body>
     <div class="selection parent-container">
         <div class="pen-colour child-container">
+            <form action="">
+                <label for="color">Choose color: </label>
+                <input type="color" name="color" id="color" value="#00DB7C"/>
+                <!-- <button type="submit" name="color" id="submit"></button> -->
+            </form>
+            <form id="change-grid-container">
+                <label for="change-grid">Choose grid size: </label>
+                <input
+                type="range"
+                name="change-grid"
+                id="change-grid"
+                min="1"
+                max="100"
+                step="10"
+                value="50" />
+                <output class="change-grid-output" for="change-grid"></output>
+            </form>
+            <!-- <input type="color" name="color" id="color" />
             <input id="pen-color-input" value="rainbow"></input>
             <h4>Enter pen color (name, hex, etc)</h4>
-            <button id="pen-color-submit">Confirm</button>
-            <button class="grid-size button" id="change-grid">Change pen size</button> 
+            <button id="pen-color-submit">Confirm</button> -->
+            <!-- <button class="grid-size button" id="change-grid">Change pen size</button>  -->
         </div>
         <div class="seperator"></div>
         <div class="background-colour child-container"> 
